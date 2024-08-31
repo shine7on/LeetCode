@@ -18,7 +18,24 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
+        if (head.next == null)
+            return false;
         
+        ListNode pointer = head.next;
+
+        int index = 1;
+        head.val = 0;
+
+        while (pointer != null) {
+            if (index > pointer.next.val)
+                return true;
+            else
+                pointer.val = index;
+            
+            index++;
+        }
+
+        return false;
     }
 }
 // @lc code=end
